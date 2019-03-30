@@ -1,0 +1,9 @@
+.idea/*
+*.class
+*.war
+*.jar
+*.ear
+notes.txt
+Some.java
+target/
+out/
