@@ -1,9 +1,13 @@
 package model;
 
+import java.util.Set;
+
 public class User {
     private int id;
     private  String name;
     private String surname;
+    Set<Skill> skills;
+
 
     public User(int id, String name, String surname) {
         this.id = id;
@@ -33,6 +37,14 @@ public class User {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public Set<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Set<Skill> skills) {
+        this.skills = skills;
     }
 
     @Override
