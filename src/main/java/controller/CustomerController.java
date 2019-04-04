@@ -23,10 +23,10 @@ public class CustomerController{
         return customerRepository.findAll();
     }
 
-    public void update(Customer customer) {
+    public void update(Customer customer) throws SQLException, ClassNotFoundException {
         if(customer == null){
             throw  new IllegalArgumentException();
-        }
+        }else customerRepository.update(customer);
 
     }
 

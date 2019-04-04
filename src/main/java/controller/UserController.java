@@ -7,7 +7,7 @@ import repository.impl.UserRepositoryImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-public class UserController {
+public class UserController{
     UserRepository userRepository = new UserRepositoryImpl();
 
 
@@ -19,16 +19,14 @@ public class UserController {
         }
     }
 
-
     public List<User> findAll() throws SQLException, ClassNotFoundException {
         return userRepository.findAll();
     }
 
-
-    public void update(User user){
+    public void update(User user) throws SQLException, ClassNotFoundException {
         if(user == null){
             throw  new IllegalArgumentException();
-        }
+        }else userRepository.update(user);
     }
 
 
@@ -39,7 +37,6 @@ public class UserController {
             userRepository.delete(id);
         }
     }
-
 
     public User getById(Integer id) throws SQLException, ClassNotFoundException {
         if(id == null || id < 0){

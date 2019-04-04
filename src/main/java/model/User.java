@@ -8,6 +8,8 @@ public class User {
     private String surname;
     Set<Skill> skills;
 
+    public User() {
+    }
 
     public User(int id, String name, String surname) {
         this.id = id;

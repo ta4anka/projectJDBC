@@ -26,7 +26,7 @@ public class ProjectController{
     public void update(Project project) throws SQLException, ClassNotFoundException {
         if(project == null){
             throw  new IllegalArgumentException();
-        }
+        }else projectRepository.update(project);
     }
 
 

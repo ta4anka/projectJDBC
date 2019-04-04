@@ -1,8 +1,22 @@
 package model;
 
+import java.util.Set;
+
 public class Customer {
     private int id;
     private String name;
+    private Set<Project> projects;
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
+
+    public Customer() {
+    }
 
     public Customer(int id, String name) {
         this.id = id;

@@ -7,7 +7,7 @@ import repository.impl.SkillRepositoryImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-public class SkillController {
+public class SkillController{
     SkillRepository skillRepository = new SkillRepositoryImpl();
 
     public void save(Skill skill) throws SQLException, ClassNotFoundException {
@@ -22,10 +22,10 @@ public class SkillController {
         return skillRepository.findAll();
     }
 
-    public void update(Skill skill){
+    public void update(Skill skill) throws SQLException, ClassNotFoundException {
         if(skill == null){
             throw  new IllegalArgumentException();
-        }
+        }else skillRepository.update(skill);
     }
 
     public void delete(Integer id) throws ClassNotFoundException, SQLException {

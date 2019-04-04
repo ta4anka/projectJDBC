@@ -26,10 +26,10 @@ public class TeamController{
     }
 
 
-    public void update(Team team){
+    public void update(Team team) throws SQLException, ClassNotFoundException {
         if(team== null){
             throw  new IllegalArgumentException();
-        }
+        }else teamRepository.update(team);
 
     }
 
