@@ -1,0 +1,53 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                     http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="ta4anka" id="24">
+        <update tableName="projects">
+            <column name="cost" value="745000"/>
+            <where>id = "1"</where>
+        </update>
+    </changeSet>
+
+    <changeSet author="ta4anka" id="25">
+        <update tableName="projects">
+            <column name="cost" value="20000"/>
+            <where>id = "2"</where>
+        </update>
+    </changeSet>
+
+    <changeSet author="ta4anka" id="26">
+        <update tableName="projects">
+            <column name="cost" value="30000"/>
+            <where>id = "3"</where>
+        </update>
+    </changeSet>
+
+
+    <changeSet author="ta4anka" id="27">
+        <update tableName="projects">
+            <column name="cost" value="40000"/>
+            <where>id = "4"</where>
+        </update>
+    </changeSet>
+
+    <changeSet author="ta4anka" id="28">
+        <update tableName="projects">
+            <column name="cost" value="50000"/>
+            <where>id = "5"</where>
+        </update>
+    </changeSet>
+
+    <changeSet author="ta4anka" id="29">
+        <update tableName="projects">
+            <column name="cost" value="60000"/>
+            <where>id = "6"</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,142 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                     http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="ta4anka" id="1">
+        <createTable tableName="customers">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ta4anka" id="2">
+        <createTable tableName="customers_projects">
+            <column name="customer_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="project_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ta4anka" id="3">
+        <createTable tableName="projects">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ta4anka" id="4">
+        <createTable tableName="skills">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ta4anka" id="5">
+        <createTable tableName="teams">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ta4anka" id="6">
+        <createTable tableName="teams_projects">
+            <column name="team_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="project_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ta4anka" id="7">
+        <createTable tableName="teams_users">
+            <column name="team_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ta4anka" id="8">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)"/>
+            <column name="surname" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ta4anka" id="9">
+        <createTable tableName="users_skills">
+            <column name="user_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="skill_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ta4anka" id="10">
+        <createIndex indexName="project_id" tableName="customers_projects">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ta4anka" id="11">
+        <createIndex indexName="project_id" tableName="teams_projects">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ta4anka" id="12">
+        <createIndex indexName="skill_id" tableName="users_skills">
+            <column name="skill_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ta4anka" id="13">
+        <createIndex indexName="user_id" tableName="teams_users">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ta4anka" id="14">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="customers_projects" constraintName="customers_projects_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="customers" validate="true"/>
+    </changeSet>
+    <changeSet author="ta4anka" id="15">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="customers_projects" constraintName="customers_projects_ibfk_2" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="projects" validate="true"/>
+    </changeSet>
+    <changeSet author="ta4anka" id="16">
+        <addForeignKeyConstraint baseColumnNames="team_id" baseTableName="teams_projects" constraintName="teams_projects_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="teams" validate="true"/>
+    </changeSet>
+    <changeSet author="ta4anka" id="17">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="teams_projects" constraintName="teams_projects_ibfk_2" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="projects" validate="true"/>
+    </changeSet>
+    <changeSet author="ta4anka" id="18">
+        <addForeignKeyConstraint baseColumnNames="team_id" baseTableName="teams_users" constraintName="teams_users_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="teams" validate="true"/>
+    </changeSet>
+    <changeSet author="ta4anka" id="19">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="teams_users" constraintName="teams_users_ibfk_2" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="ta4anka" id="20">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="users_skills" constraintName="users_skills_ibfk_1" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="ta4anka" id="21">
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="users_skills" constraintName="users_skills_ibfk_2" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="skills" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
